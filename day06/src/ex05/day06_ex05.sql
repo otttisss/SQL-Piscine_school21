@@ -1,0 +1,12 @@
+comment on table person_discounts is 'Таблица скидок для клиентов';
+comment on column person_discounts.id is 'Уникальный идентификатор с первичным ключом';
+comment on column person_discounts.person_id is 'Уникальный идентификатор клиента';
+comment on column person_discounts.pizzeria_id is 'Уникальный идентификатор пиццерии';
+comment on column person_discounts.discount is 'Скидка клиента в пиццерии';
+comment on constraint fk_person_discounts_person_id on person_discounts is 'Создание вторичного ключа для связи с таблицей person';
+comment on constraint fk_person_discounts_pizzeria_id on person_discounts is 'Создание вторичного ключа для связи с таблицей pizzeria';
+comment on constraint ch_nn_person_id on person_discounts is 'Ограничение, столбец person_id не должен быть NULL';
+comment on constraint ch_nn_pizzeria_id on person_discounts is 'Ограничение, столбец pizzeria_id не должен быть NULL';
+comment on constraint ch_nn_discount on person_discounts is 'Ограничение, столбец discount не должен быть NULL';
+comment on constraint ch_range_discount on person_discounts is 'Ограничение, столбец discount должен находиться в диапазоне от 0 до 100';
+comment on index idx_person_discounts_unique is 'Поля person_id и pizzeria_id таблицы person_discounts становятся уникальными';
